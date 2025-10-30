@@ -23,11 +23,9 @@ export default function Profile() {
   const userId = storedUser?._id;
 
   useEffect(() => {
-    console.log("param Id:", id);
     if (id) {
       userApi.fetchApi(`/users/${id}`);
       issueApi.fetchApi(`/issues/user/${id}`);
-      console.log("Your user: ", userApi.data, userApi.error);
     } else {
       userApi.fetchApi("/auth/me");
       issueApi.fetchApi(`/issues/user/${userId}`);

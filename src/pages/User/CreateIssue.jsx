@@ -22,13 +22,15 @@ export default function CreateIssue() {
 
     const data = await fetchApi("/issues/create", "POST", formData, true);
     if (data) {
-      navigate("/");
+      navigate("/home");
       toast.success("Issue Posted successfully!");
     } else {
       toast.error("Something went wrong!");
     }
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="max-w-2xl mx-auto h-screen w-full p-4 px-8 mb-12 bg-transparent">
       <div className="text-xl font-semibold text-gray-900 mb-8 ">

@@ -47,7 +47,7 @@ export default function ManageIssues() {
     );
 
   return (
-    <div className="w-full pt-4 md:pt-0 md:py-6 mx-auto max-w-6xl bg-gray-50 min-h-screen">
+    <div className="w-full pt-4 md:pt-0 md:py-6 mx-auto max-w-6xl bg-gray-50">
       <div className="text-2xl font-bold text-gray-800 mb-6">Manage Issues</div>
 
       {message && (

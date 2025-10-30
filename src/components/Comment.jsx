@@ -3,8 +3,6 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { MdAdminPanelSettings } from "react-icons/md";
 
 export default function Comment({ comments }) {
-  console.log(comments[0]);
-
   return (
     <div className="space-y-4">
       <div>Recent Comments</div>
@@ -18,17 +16,17 @@ export default function Comment({ comments }) {
             key={c._id}
             className={
               c.user.role === "student"
-                ? "border w-fit max-w-1/2 rounded-lg p-3 bg-gray-50 hover:bg-gray-100 transition"
-                : "border w-fit max-w-1/ border-teal-800 rounded-lg p-3 bg-teal-50 hover:bg-gray-100 transition"
+                ? "border w-full sm:max-w-1/2 rounded-lg p-3 bg-gray-50 hover:bg-gray-100 transition"
+                : "border w-full sm:max-w-1/2 border-teal-800 rounded-lg p-3 bg-teal-50 hover:bg-gray-100 transition"
             }
           >
             <div className="flex justify-between items-center mb-1">
               <Link
                 to={`/profile/${c.user._id}`}
                 className={
-                  c.user.role === "student"
-                    ? "font-medium text-gray-800 flex justify-center items-center"
-                    : "font-medium text-teal-800 flex justify-center items-center"
+                  c.user.role === "admin"
+                    ? "font-medium text-teal-800 flex justify-center items-center"
+                    : "font-medium text-gray-800 flex justify-center items-center"
                 }
               >
                 {c.user.role === "admin" ? (

@@ -18,7 +18,6 @@ export default function Issue() {
 
   useEffect(() => {
     issueApi.fetchApi(`/issues/issue/${id}`);
-    console.log(issueApi.data);
   }, [id]);
 
   useEffect(() => {
@@ -43,6 +42,7 @@ export default function Issue() {
       setComments([...comments, res]);
       setComment("");
       setMsg("Comment added");
+      await getCommentApi.fetchApi(`/comments/${id}`);
       setTimeout(() => setMsg(""), 2000);
     }
   };
@@ -88,9 +88,11 @@ export default function Issue() {
             className={`w-fit mt-2 sm:mt-0 px-3 py-1 text-sm font-medium rounded-full ${
               issue.status === "resolved"
                 ? "bg-green-100 text-green-700"
-                : issue.status === "pending"
-                ? "bg-yellow-100 text-yellow-700"
-                : "bg-blue-100 text-blue-700"
+                : issue.status === "in-progress"
+                ? "bg-sky-100 text-sky-700"
+                : issue.status === "rejected"
+                ? "bg-red-100 text-red-700"
+                : "bg-gray-100 text-gray-700"
             }`}
           >
             {issue.status.charAt(0).toUpperCase() + issue.status.slice(1)}

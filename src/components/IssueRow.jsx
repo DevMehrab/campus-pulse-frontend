@@ -32,8 +32,8 @@ export default function IssueRow({
                 <td className="p-4 font-medium text-gray-900">
                   <Link to={`/issues/${issue._id}`}>
                     {" "}
-                    {issue.title.length > 10
-                      ? `${issue.title.substring(0, 10)} ...`
+                    {issue.title.length > 20
+                      ? `${issue.title.substring(0, 20)} ...`
                       : issue.title}
                   </Link>
                 </td>
