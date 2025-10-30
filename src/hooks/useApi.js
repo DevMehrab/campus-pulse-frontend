@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export const useApi = () => {
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -29,10 +30,7 @@ export const useApi = () => {
         options.body = isMultipart ? body : JSON.stringify(body);
       }
       setLoading(true);
-      const response = await fetch(
-        `http://localhost:3000/api${endpoint}`,
-        options
-      );
+      const response = await fetch(`${BASE_URL}${endpoint}`, options);
       if (!response.ok) {
         throw new Error("Something went wrong");
       }

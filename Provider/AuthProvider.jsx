@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { AuthContext } from "../src/context/AuthContext";
 
-const API_BASE = "http://localhost:3000/api/auth";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const register = useCallback(async (formData) => {
-    const res = await fetch(`${API_BASE}/register`, {
+    const res = await fetch(`${BASE_URL}/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = useCallback(async (credentials) => {
-    const res = await fetch(`${API_BASE}/login`, {
+    const res = await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
