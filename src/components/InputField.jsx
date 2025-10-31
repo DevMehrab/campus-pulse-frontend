@@ -6,6 +6,7 @@ export default function InputField({
   name,
   type = "text",
   placeholder,
+  minLength = "3",
   value,
   onChange,
   required = true,
@@ -45,7 +46,7 @@ export default function InputField({
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            min={name === "password" ? 6 : 3}
+            minLength={minLength}
             className={`w-full p-3 ${
               Icon ? "pl-10" : "pl-4"
             } border border-gray-300 rounded-xl bg-gray-50 text-gray-800 transition duration-300 ease-in-out focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 placeholder:text-gray-400`}

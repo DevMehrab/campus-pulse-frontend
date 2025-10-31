@@ -91,6 +91,7 @@ export default function Register() {
             icon={FiUser}
             label="Username"
             name="username"
+            minLength="3"
             placeholder="mehrab52"
             value={formData.name}
             onChange={handleChange}
@@ -111,6 +112,7 @@ export default function Register() {
             label="Password"
             name="password"
             type="password"
+            minLength="6"
             placeholder="Min. 6 characters"
             value={formData.password}
             onChange={handleChange}
