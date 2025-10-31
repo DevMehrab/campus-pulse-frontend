@@ -55,8 +55,9 @@ export default function Issue() {
     );
 
   if (issueApi.error)
-    return <div className="text-center text-red-600 mt-10">{error}</div>;
-
+    return (
+      <div className="text-center text-red-600 mt-10">{issueApi.error}</div>
+    );
   if (!issue)
     return (
       <div className="text-center text-gray-500 mt-20">Issue not found.</div>

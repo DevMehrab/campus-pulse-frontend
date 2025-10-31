@@ -43,9 +43,7 @@ export default function Comment({ comments }) {
                 {new Date(c.createdAt).toLocaleDateString()}
               </span>
             </div>
-            <p className="text-gray-700 text-sm border-l pl-1 border-l-gray-300">
-              {c.text}
-            </p>
+            <p className="text-gray-700 text-sm ">{c.text}</p>
           </div>
         ))
       )}
