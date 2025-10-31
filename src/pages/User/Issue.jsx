@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useApi } from "../../hooks/useApi";
 import { AuthContext } from "../../context/AuthContext";
 import Comment from "../../components/Comment";
+import { toast } from "react-toastify";
 
 export default function Issue() {
   const { id } = useParams();
@@ -38,6 +39,13 @@ export default function Issue() {
       userId: getUser() ? JSON.parse(getUser()) : null,
       issueId: id,
     });
+    if (!res) {
+      toast.warning("Please log in to continue.", {
+        toastId: "auth-warning",
+      });
+      navigate("/login");
+      return;
+    }
     if (res) {
       setComments([...comments, res]);
       setComment("");
