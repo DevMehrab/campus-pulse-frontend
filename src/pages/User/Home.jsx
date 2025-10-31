@@ -11,7 +11,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="mb-12 p-4 px-8 h-auto w-full max-w-2xl mx-auto overflow-scroll">
+    <div className="mb-12 p-4 px-4 md:px-8 h-auto w-full max-w-2xl mx-auto overflow-scroll">
       <h2 className="text-xl font-bold text-gray-800 mb-4">
         Campus Issues Feed
       </h2>

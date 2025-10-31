@@ -14,9 +14,14 @@ export default function IssueCard({ issue }) {
   const [voted, setVoted] = useState(issue.hasVoted || false);
 
   const text =
-    issue.description.length > 200
-      ? `${issue.description.substring(0, 200)} ...see more`
-      : issue.description;
+    issue.description.length > 200 ? (
+      <>
+        {issue.description.substring(0, 200)}{" "}
+        <b className="text-gray-600">...see more</b>
+      </>
+    ) : (
+      issue.description
+    );
 
   const handleVote = async (e) => {
     e.stopPropagation();
@@ -81,7 +86,7 @@ export default function IssueCard({ issue }) {
         </div>
       )}
 
-      <div className="flex justify-start mt-4">
+      <div className="flex justify-between mt-4">
         <button
           onClick={handleVote}
           className={`flex items-center gap-1 text-sm font-medium px-3 py-1 rounded-lg transition ${
@@ -92,6 +97,11 @@ export default function IssueCard({ issue }) {
         >
           <PiArrowFatLineUp />
           {votes}
+        </button>
+        <button
+          className={`flex items-center gap-1 text-sm font-medium px-3 py-1 rounded-lg transition bg-gray-100 text-gray-600 hover:bg-gray-200`}
+        >
+          See Comments
         </button>
       </div>
     </div>
