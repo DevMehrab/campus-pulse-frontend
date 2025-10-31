@@ -111,7 +111,7 @@ export default function Register() {
             label="Password"
             name="password"
             type="password"
-            placeholder="Min. 8 characters"
+            placeholder="Min. 6 characters"
             value={formData.password}
             onChange={handleChange}
             required

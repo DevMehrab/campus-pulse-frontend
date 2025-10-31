@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { AuthContext } from "../src/context/AuthContext";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
-
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const stored = localStorage.getItem("user");
