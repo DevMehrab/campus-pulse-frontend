@@ -62,7 +62,7 @@ export default function Login() {
       <div className="w-full max-w-lg p-10 transition-all duration-500">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
-            Welcome Back 👋
+            Welcome Back
           </h2>
           <p className="text-lg text-gray-500">
             Log in to continue to Campus Pulse
@@ -138,7 +138,7 @@ export default function Login() {
               to="/register"
               className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-300 hover:underline"
             >
-              Register
+              Create Account
             </Link>
           </p>
         </div>

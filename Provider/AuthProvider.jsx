@@ -1,10 +1,8 @@
 import { useCallback } from "react";
 import { AuthContext } from "../src/context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 export const AuthProvider = ({ children }) => {
-  const navigate = useNavigate();
   const register = useCallback(async (formData) => {
     const res = await fetch(`${BASE_URL}/auth/register`, {
       method: "POST",
@@ -40,7 +38,6 @@ export const AuthProvider = ({ children }) => {
   const logout = useCallback(() => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    navigate("/login");
   }, []);
 
   const getToken = useCallback(() => localStorage.getItem("token") || null, []);

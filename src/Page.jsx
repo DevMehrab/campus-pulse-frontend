@@ -24,15 +24,15 @@ export default function Page() {
           <Route path="/register" element={<Register />} />
           <Route path="/issues/:id" element={<Issue />} />
 
-          <Route
-            element={<ProtectedRoute allowedRoles={["student", "admin"]} />}
-          >
-            <Route element={<StudentLayout />}>
-              <Route path="/about" element={<About />} />
-              <Route path="/home" element={<Home />} />
+          <Route element={<StudentLayout />}>
+            <Route path="/about" element={<About />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route
+              element={<ProtectedRoute allowedRoles={["student", "admin"]} />}
+            >
               <Route path="/create" element={<CreateIssue />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/profile/:id" element={<Profile />} />
             </Route>
           </Route>
 

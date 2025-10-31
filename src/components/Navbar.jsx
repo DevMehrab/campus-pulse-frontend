@@ -15,7 +15,7 @@ export default function Navbar() {
         Campus Pulse
       </div>
       <div className="flex items-center gap-4">
-        {user && (
+        {user ? (
           <>
             <span className="hidden sm:block text-gray-700 font-medium">
               Hi, {user.username.split(" ")[0]}
@@ -26,6 +26,15 @@ export default function Navbar() {
             >
               {user.username.split(" ")[0].split("")[0].toUpperCase()}
             </div>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={() => navigate("/login")}
+              className="rounded p-2 bg-sky-600 text-white"
+            >
+              Login
+            </button>
           </>
         )}
       </div>

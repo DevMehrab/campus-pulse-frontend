@@ -3,9 +3,11 @@ import { useApi } from "../../hooks/useApi";
 import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
 import IssueCard from "../../components/IssueCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Profile() {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   const { id } = useParams();
   const userApi = useApi();
   const issueApi = useApi();
@@ -47,7 +49,10 @@ export default function Profile() {
       });
     }
   }, [user]);
-
+  function handleLogout() {
+    logout();
+    navigate("/login");
+  }
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -125,12 +130,18 @@ export default function Profile() {
           </div>
 
           {!id && (
-            <div className="mt-6 flex justify-end gap-3">
+            <div className="mt-6 flex justify-between gap-3">
+              <button
+                onClick={handleLogout}
+                className="p-2 rounded-lg bg-red-600 text-white text-sm hover:bg-red-700 transition"
+              >
+                Logout
+              </button>
               {editMode ? (
-                <>
+                <div>
                   <button
                     onClick={() => setEditMode(false)}
-                    className="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 transition"
+                    className="px-4 py-2 mr-2 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 transition"
                   >
                     Cancel
                   </button>
@@ -140,7 +151,7 @@ export default function Profile() {
                   >
                     Save Changes
                   </button>
-                </>
+                </div>
               ) : (
                 <button
                   onClick={() => setEditMode(true)}

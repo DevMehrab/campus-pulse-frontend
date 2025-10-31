@@ -17,6 +17,10 @@ export default function Sidebar() {
   function handleAdmin() {
     navigate("/admin/dashboard");
   }
+  function handleLogout() {
+    logout();
+    navigate("/login");
+  }
   const links = [
     { name: "Home", icon: <AiOutlineHome size={22} />, path: "/home" },
     {
@@ -45,7 +49,7 @@ export default function Sidebar() {
           </Link>
         ))}
         <button
-          onClick={logout}
+          onClick={handleLogout}
           className="p-2 rounded-lg bg-indigo-600 text-white text-sm hover:bg-indigo-700 transition"
         >
           Logout
